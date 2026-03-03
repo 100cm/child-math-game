@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>小马宝莉数学乐园</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Main Menu Screen -->
+        <div id="menu-screen" class="screen active">
+            <div class="menu-container">
+                <h1 class="game-title">小马宝莉<br>数学乐园</h1>
+                <div class="pony-decoration" id="menu-pony"></div>
+                <div class="difficulty-buttons">
+                    <button class="difficulty-btn easy" data-difficulty="easy">
+                        <span class="star">⭐</span>
+                        <span class="label">简单</span>
+                        <span class="desc">1-5 轻松模式</span>
+                    </button>
+                    <button class="difficulty-btn medium" data-difficulty="medium">
+                        <span class="star">⭐⭐</span>
+                        <span class="label">中等</span>
+                        <span class="desc">1-8 限时挑战</span>
+                    </button>
+                    <button class="difficulty-btn hard" data-difficulty="hard">
+                        <span class="star">⭐⭐⭐</span>
+                        <span class="label">困难</span>
+                        <span class="desc">1-10 高手模式</span>
+                    </button>
+                    <button class="difficulty-btn infinite" data-difficulty="infinite">
+                        <span class="star">♾️</span>
+                        <span class="label">无限</span>
+                        <span class="desc">1-10 无限畅玩</span>
+                    </button>
+                    <button class="difficulty-btn hell" data-difficulty="hell">
+                        <span class="star">🔥🔥🔥</span>
+                        <span class="label">地狱</span>
+                        <span class="desc">1-30 极限挑战</span>
+                    </button>
+                </div>
+                <button class="collection-btn" id="view-collection">
+                    🎴 我的卡片册
+                </button>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen">
+            <div class="game-header">
+                <button class="back-btn" id="back-to-menu">🏠</button>
+                <div class="score-display">
+                    <span class="score-icon">🌟</span>
+                    <span id="score">0</span>
+                </div>
+                <div class="timer-display" id="timer-container">
+                    <span class="timer-icon">⏱️</span>
+                    <span id="timer">--</span>
+                </div>
+                <div class="streak-display">
+                    <span class="streak-icon">🔥</span>
+                    <span id="streak">0</span>
+                </div>
+            </div>
+
+            <div class="game-area">
+                <div class="pony-helper" id="game-pony"></div>
+
+                <div class="question-container">
+                    <div class="question-card">
+                        <span id="num1" class="number">?</span>
+                        <span id="operator" class="operator">+</span>
+                        <span id="num2" class="number">?</span>
+                        <span class="equals">=</span>
+                        <span id="answer-display" class="answer-box">?</span>
+                    </div>
+                </div>
+
+                <div class="answer-buttons" id="answer-buttons">
+                    <!-- Generated dynamically -->
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                    <div class="progress-text">下一张卡片: <span id="cards-progress">0</span>/<span id="cards-needed">2</span></div>
+                </div>
+            </div>
+
+            <div class="feedback-overlay" id="feedback-overlay">
+                <div class="feedback-content" id="feedback-content"></div>
+            </div>
+        </div>
+
+        <!-- Collection Screen -->
+        <div id="collection-screen" class="screen">
+            <div class="collection-header">
+                <button class="back-btn" id="back-from-collection">🏠</button>
+                <h2>我的卡片册</h2>
+                <span class="collection-count">已收集: <span id="collected-count">0</span>/<span id="total-cards">27</span></span>
+            </div>
+            <div class="collection-grid" id="collection-grid">
+                <!-- Generated dynamically -->
+            </div>
+        </div>
+
+        <!-- Card Reward Popup -->
+        <div id="card-popup" class="popup hidden">
+            <div class="popup-content card-reward">
+                <div class="sparkles"></div>
+                <h2>🎉 恭喜获得新卡片!</h2>
+                <div class="card-showcase" id="new-card-showcase"></div>
+                <button class="popup-btn" id="close-card-popup">太棒了!</button>
+            </div>
+        </div>
+
+        <!-- Wrong Answer Popup -->
+        <div id="wrong-popup" class="popup hidden">
+            <div class="popup-content wrong-answer">
+                <div class="sad-pony-showcase" id="sad-pony-showcase"></div>
+                <h2 class="wrong-title">😢 答错啦~</h2>
+                <p class="wrong-message">没关系，继续加油！</p>
+                <div class="correct-answer-box">
+                    <span class="correct-label">正确答案是</span>
+                    <span class="correct-number" id="correct-answer-display">0</span>
+                </div>
+                <button class="popup-btn wrong-btn" id="close-wrong-popup">我知道了</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
