@@ -99,6 +99,10 @@ export class GameLogic {
             this.score += CONFIG.pointsPerCorrect + (this.streak > 1 ? CONFIG.bonusPointsStreak : 0);
         } else {
             this.streak = 0;
+            // Apply wrong answer penalty if configured
+            if (this.currentDifficulty.wrongPenalty && this.correctCount > 0) {
+                this.correctCount = Math.max(0, this.correctCount - this.currentDifficulty.wrongPenalty);
+            }
         }
 
         return {

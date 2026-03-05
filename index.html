@@ -43,9 +43,79 @@
                         <span class="desc">1-30 极限挑战</span>
                     </button>
                 </div>
+                <button class="hanzi-btn" id="hanzi-game">
+                    📖 认字乐园
+                </button>
                 <button class="collection-btn" id="view-collection">
                     🎴 我的卡片册
                 </button>
+            </div>
+        </div>
+
+        <!-- Hanzi Difficulty Screen -->
+        <div id="hanzi-difficulty-screen" class="screen">
+            <div class="menu-container">
+                <button class="back-btn hanzi-back" id="back-from-hanzi-difficulty">🏠</button>
+                <h1 class="game-title hanzi-title">认字乐园</h1>
+                <div class="pony-decoration" id="hanzi-menu-pony"></div>
+                <div class="difficulty-buttons">
+                    <button class="difficulty-btn hanzi-easy" data-hanzi-difficulty="easy">
+                        <span class="star">🌟</span>
+                        <span class="label">简单</span>
+                        <span class="desc">动物和食物</span>
+                    </button>
+                    <button class="difficulty-btn hanzi-medium" data-hanzi-difficulty="medium">
+                        <span class="star">🌟🌟</span>
+                        <span class="label">中等</span>
+                        <span class="desc">自然和物品</span>
+                    </button>
+                    <button class="difficulty-btn hanzi-hard" data-hanzi-difficulty="hard">
+                        <span class="star">🌟🌟🌟</span>
+                        <span class="label">困难</span>
+                        <span class="desc">全部类别</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hanzi Game Screen -->
+        <div id="hanzi-game-screen" class="screen">
+            <div class="game-header">
+                <button class="back-btn" id="back-from-hanzi-game">🏠</button>
+                <div class="score-display">
+                    <span class="score-icon">🌟</span>
+                    <span id="hanzi-score">0</span>
+                </div>
+                <div class="timer-display" id="hanzi-timer-container">
+                    <span class="timer-icon">⏱️</span>
+                    <span id="hanzi-timer">--</span>
+                </div>
+                <div class="streak-display">
+                    <span class="streak-icon">🔥</span>
+                    <span id="hanzi-streak">0</span>
+                </div>
+            </div>
+
+            <div class="game-area hanzi-game-area">
+                <div class="pony-helper" id="hanzi-game-pony"></div>
+
+                <div class="hanzi-question-container">
+                    <div class="emoji-display" id="emoji-display">❓</div>
+                    <div class="hint-text">这是什么？</div>
+                </div>
+
+                <div class="hanzi-answer-buttons" id="hanzi-answer-buttons">
+                    <!-- Generated dynamically -->
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" id="hanzi-progress-fill"></div>
+                    <div class="progress-text">下一张卡片: <span id="hanzi-cards-progress">0</span>/<span id="hanzi-cards-needed">8</span></div>
+                </div>
+            </div>
+
+            <div class="feedback-overlay" id="hanzi-feedback-overlay">
+                <div class="feedback-content" id="hanzi-feedback-content"></div>
             </div>
         </div>
 
@@ -121,12 +191,13 @@
         <div id="wrong-popup" class="popup hidden">
             <div class="popup-content wrong-answer">
                 <div class="sad-pony-showcase" id="sad-pony-showcase"></div>
-                <h2 class="wrong-title">😢 答错啦~</h2>
+                <h2 class="wrong-title" id="wrong-title">😢 答错啦~</h2>
                 <p class="wrong-message">没关系，继续加油！</p>
-                <div class="correct-answer-box">
+                <div class="correct-answer-box" id="correct-answer-box">
                     <span class="correct-label">正确答案是</span>
                     <span class="correct-number" id="correct-answer-display">0</span>
                 </div>
+                <button class="popup-btn wrong-btn" id="reveal-answer-btn" style="display: none;">👀 查看答案</button>
                 <button class="popup-btn wrong-btn" id="close-wrong-popup">我知道了</button>
             </div>
         </div>

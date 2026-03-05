@@ -852,14 +852,271 @@ body {
     }
 }
 
-/* Card showcase in popup - larger */
+/* ===== Hanzi Game Styles ===== */
+.hanzi-btn {
+    background: linear-gradient(135deg, #ff9a56 0%, #ff6b6b 100%);
+    color: white;
+    border: none;
+    padding: 16px 40px;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(255, 154, 86, 0.4);
+    transition: all 0.3s ease;
+    margin-bottom: 15px;
+}
+
+.hanzi-btn:active {
+    transform: scale(0.95);
+}
+
+.hanzi-title {
+    background: linear-gradient(135deg, #ff9a56 0%, #ff6b6b 50%, #c44cff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hanzi-back {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+/* Hanzi Difficulty Buttons */
+.difficulty-btn.hanzi-easy {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    color: #8b4513;
+}
+
+.difficulty-btn.hanzi-medium {
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    color: #4a4a4a;
+}
+
+.difficulty-btn.hanzi-hard {
+    background: linear-gradient(135deg, #ff9a56 0%, #ff6b6b 100%);
+    color: white;
+}
+
+/* Hanzi Game Area */
+.hanzi-game-area {
+    background: linear-gradient(180deg, #fff5eb 0%, #ffe8d6 100%);
+}
+
+.hanzi-question-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.emoji-display {
+    font-size: 8rem;
+    line-height: 1.2;
+    text-align: center;
+    animation: emojiPulse 2s ease-in-out infinite;
+    filter: drop-shadow(0 10px 30px rgba(255, 107, 157, 0.3));
+    margin-bottom: 15px;
+}
+
+@keyframes emojiPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.hint-text {
+    font-size: 1.5rem;
+    color: #ff6b6b;
+    font-weight: 600;
+    text-shadow: 0 2px 10px rgba(255, 107, 107, 0.2);
+}
+
+/* Hanzi Answer Buttons */
+.hanzi-answer-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    width: 100%;
+    max-width: 350px;
+    padding: 0 20px;
+}
+
+.hanzi-answer-btn {
+    padding: 25px 20px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    background: white;
+    color: #333;
+    border: 3px solid transparent;
+}
+
+.hanzi-answer-btn:nth-child(1) {
+    background: linear-gradient(135deg, #fff5f5 0%, #ffe0e6 100%);
+    border-color: #ff9a9e;
+}
+
+.hanzi-answer-btn:nth-child(2) {
+    background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
+    border-color: #68d391;
+}
+
+.hanzi-answer-btn:nth-child(3) {
+    background: linear-gradient(135deg, #fffff0 0%, #fefcbf 100%);
+    border-color: #f6e05e;
+}
+
+.hanzi-answer-btn:nth-child(4) {
+    background: linear-gradient(135deg, #ebf8ff 0%, #bee3f8 100%);
+    border-color: #63b3ed;
+}
+
+.hanzi-answer-btn:active {
+    transform: scale(0.92);
+}
+
+.hanzi-answer-btn.correct {
+    animation: correctPulse 0.5s ease;
+    background: linear-gradient(135deg, #68d391 0%, #48bb78 100%) !important;
+    color: white !important;
+    border-color: #38a169 !important;
+}
+
+.hanzi-answer-btn.wrong {
+    animation: wrongShake 0.5s ease;
+    background: linear-gradient(135deg, #fc8181 0%, #f56565 100%) !important;
+    color: white !important;
+    border-color: #e53e3e !important;
+}
+
+/* Hanzi background classes */
+.bg-hanzi-easy {
+    background: linear-gradient(180deg, #fff5eb 0%, #ffe8d6 100%);
+}
+
+.bg-hanzi-medium {
+    background: linear-gradient(180deg, #e6fffa 0%, #b2f5ea 100%);
+}
+
+.bg-hanzi-hard {
+    background: linear-gradient(180deg, #fff5f5 0%, #fed7d7 100%);
+}
+
+/* iPad adjustments for Hanzi */
+@media (min-width: 768px) {
+    .emoji-display {
+        font-size: 12rem;
+    }
+
+    .hint-text {
+        font-size: 2rem;
+    }
+
+    .hanzi-answer-buttons {
+        max-width: 500px;
+        gap: 20px;
+    }
+
+    .hanzi-answer-btn {
+        padding: 35px 30px;
+        font-size: 3.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hanzi-answer-buttons {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 700px;
+    }
+}
+
+/* Card showcase in popup - larger with golden rainbow glow */
 .card-showcase .pony-card {
     width: 150px !important;
+    position: relative;
+    border: 3px solid transparent;
+    background: linear-gradient(145deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+    animation: goldenGlow 2s ease-in-out infinite alternate;
+}
+
+.card-showcase .pony-card::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    background: linear-gradient(
+        90deg,
+        #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3,
+        #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3
+    );
+    background-size: 200% 100%;
+    border-radius: 18px;
+    z-index: -1;
+    animation: rainbowBorder 3s linear infinite;
+}
+
+.card-showcase .pony-card::after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 0, 0, 0.5), rgba(255, 127, 0, 0.5), rgba(255, 255, 0, 0.5),
+        rgba(0, 255, 0, 0.5), rgba(0, 0, 255, 0.5), rgba(75, 0, 130, 0.5), rgba(148, 0, 211, 0.5),
+        rgba(255, 0, 0, 0.5)
+    );
+    background-size: 200% 100%;
+    border-radius: 22px;
+    z-index: -2;
+    filter: blur(15px);
+    animation: rainbowBorder 3s linear infinite;
+}
+
+@keyframes rainbowBorder {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+@keyframes goldenGlow {
+    0% {
+        box-shadow:
+            0 0 20px rgba(255, 215, 0, 0.8),
+            0 0 40px rgba(255, 215, 0, 0.5);
+    }
+    100% {
+        box-shadow:
+            0 0 30px rgba(255, 215, 0, 1),
+            0 0 60px rgba(255, 215, 0, 0.7);
+    }
 }
 
 .card-showcase .pony-card-text {
-    font-size: 0.9rem;
-    padding: 8px 6px;
+    font-size: 1rem;
+    padding: 10px 8px;
+    background: linear-gradient(180deg, #2a1f00 0%, #1a1200 100%);
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+    background-clip: unset;
+    color: #ffd700;
+    text-shadow:
+        0 0 5px rgba(255, 215, 0, 0.8),
+        0 1px 2px rgba(0, 0, 0, 0.8);
+    border-top: 1px solid rgba(255, 215, 0, 0.3);
 }
 
 /* Collection grid card adjustments */
@@ -867,6 +1124,58 @@ body {
     width: 100% !important;
     border-radius: 10px;
     padding: 4px;
+}
+
+.collection-card.collected .pony-card {
+    position: relative;
+    animation: collectedGlow 3s ease-in-out infinite alternate;
+}
+
+.collection-card.collected .pony-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(
+        90deg,
+        #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3,
+        #ff0000, #ff7f00, #ffff00
+    );
+    background-size: 200% 100%;
+    border-radius: 12px;
+    z-index: -1;
+    animation: rainbowBorder 4s linear infinite;
+}
+
+.collection-card.collected .pony-card::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 215, 0, 0.4), rgba(255, 127, 0, 0.3), rgba(255, 255, 0, 0.4),
+        rgba(0, 255, 0, 0.3), rgba(0, 0, 255, 0.3), rgba(148, 0, 211, 0.3),
+        rgba(255, 215, 0, 0.4)
+    );
+    background-size: 200% 100%;
+    border-radius: 14px;
+    z-index: -2;
+    filter: blur(8px);
+    animation: rainbowBorder 4s linear infinite;
+}
+
+@keyframes collectedGlow {
+    0% {
+        box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 15px rgba(255, 215, 0, 0.9);
+    }
 }
 
 .collection-card .pony-card-image {
@@ -877,4 +1186,13 @@ body {
 .collection-card .pony-card-text {
     font-size: 0.7rem;
     padding: 5px 3px;
+}
+
+.collection-card.collected .pony-card-text {
+    background: linear-gradient(180deg, #2a1f00 0%, #1a1200 100%);
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+    background-clip: unset;
+    color: #ffd700;
+    text-shadow: 0 0 3px rgba(255, 215, 0, 0.6);
 }

@@ -1,0 +1,94 @@
+{
+  "summary": "为小马宝莉数学乐园新增认字模块游戏，使用 Emoji 看图选字玩法",
+  "approach": "在现有项目架构上扩展，新增 hanzi-game.js 游戏逻辑、扩展 index.html UI、扩展 config.js 配置、修改 main.js 集成入口",
+  "tasks": [
+    {
+      "id": "TASK-1",
+      "title": "创建汉字-Emoji映射数据和游戏配置",
+      "scope": "新增汉字数据配置，包含字、Emoji、类别、难度分级",
+      "files": ["js/hanzi-data.js", "js/config.js"],
+      "acceptance_criteria": [
+        "汉字数据包含 100+ 个可用 Emoji 表示的汉字",
+        "按类别分组：动物、食物、自然、物品、身体、数字等",
+        "难度分级：简单(常用字30个)、中等(动物食物50个)、困难(全部100+)"
+      ],
+      "depends_on": [],
+      "execution_group": 1,
+      "complexity": "Medium"
+    },
+    {
+      "id": "TASK-2",
+      "title": "实现认字游戏逻辑类 HanziGameLogic",
+      "scope": "创建认字游戏核心逻辑，包括出题、选项生成、答题检查",
+      "files": ["js/hanzi-game.js"],
+      "acceptance_criteria": [
+        "支持按难度筛选汉字",
+        "随机出题，显示 Emoji",
+        "生成 4 个汉字选项（1正确+3干扰）",
+        "答题判定和分数计算",
+        "与数学游戏共用卡片奖励机制"
+      ],
+      "depends_on": ["TASK-1"],
+      "execution_group": 2,
+      "complexity": "Medium"
+    },
+    {
+      "id": "TASK-3",
+      "title": "扩展 index.html 添加认字游戏 UI",
+      "scope": "新增认字游戏入口按钮、游戏界面、难度选择",
+      "files": ["index.html"],
+      "acceptance_criteria": [
+        "主菜单新增「认字乐园」按钮",
+        "认字难度选择界面（简单/中等/困难）",
+        "认字游戏界面：Emoji展示区 + 4个汉字选项按钮",
+        "保持与现有UI风格一致"
+      ],
+      "depends_on": [],
+      "execution_group": 1,
+      "complexity": "Medium"
+    },
+    {
+      "id": "TASK-4",
+      "title": "扩展 CSS 样式支持认字模块",
+      "scope": "添加认字游戏相关样式",
+      "files": ["css/main.css"],
+      "acceptance_criteria": [
+        "Emoji 展示区样式（大字体、动画效果）",
+        "汉字选项按钮样式",
+        "认字难度按钮样式",
+        "响应式适配iPad"
+      ],
+      "depends_on": [],
+      "execution_group": 1,
+      "complexity": "Low"
+    },
+    {
+      "id": "TASK-5",
+      "title": "集成认字游戏到主应用",
+      "scope": "修改 main.js 集成认字游戏逻辑和事件绑定",
+      "files": ["js/main.js"],
+      "acceptance_criteria": [
+        "导入 HanziGameLogic",
+        "添加认字游戏入口事件",
+        "实现认字游戏流程（开始、答题、反馈、结束）",
+        "共用卡片奖励和音效系统"
+      ],
+      "depends_on": ["TASK-2", "TASK-3", "TASK-4"],
+      "execution_group": 3,
+      "complexity": "Medium"
+    }
+  ],
+  "estimated_time": "2-3小时",
+  "recommended_execution": "Agent",
+  "complexity": "Medium",
+  "_metadata": {
+    "timestamp": "2026-03-04T16:30:00+08:00",
+    "source": "direct-planning",
+    "planning_mode": "direct",
+    "user_selections": {
+      "gameplay": "看图选字（Emoji→汉字）",
+      "entry_point": "主菜单新增按钮",
+      "difficulty": "按类别分级"
+    }
+  }
+}
